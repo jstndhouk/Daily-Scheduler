@@ -26,6 +26,6 @@ main{
     border-bottom-right-radius:10px;
 }
 
-.customForm{
-    align-content: center;
+.tick{
+    color:black !important;
 }

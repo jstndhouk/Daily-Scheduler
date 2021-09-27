@@ -8,29 +8,27 @@ timeInterval=setInterval(function()
     timeDate.text(today);
 },1000)
 
-$( function() {
-    $( ".widget input[type=submit], .widget a, .widget button" ).button();
-    $( "button, input, a" ).click( function( event ) {
-      event.preventDefault();
-    } );
-  } 
-  );
-
-  let hours=moment().format('h')
-  console.log(hours);
+  let hours=moment().format('H')
   let tickEl=document.querySelectorAll('.tick');
 
+  for (i=0; i<tickEl.length; i++){
+  let grabString="event"+i;
+  tickEl[i].value=window.localStorage.getItem(grabString)}
 
   for(i=0;i<tickEl.length; i++){
   if (i<(hours-6)){
-    tickEl[i].setAttribute('style', "background-color:red")
-    console.log(tickEl[i]);}
-  else if (i==(hours-6))
-    tickEl[i].setAttribute('style', "background-color: yellow")
-  else 
-    tickEl[i].setAttribute('style', 'background-color:blue')
+    tickEl[i].setAttribute('style', "background-color: darkgrey")
+    }
+  else if (i==(hours-6)){
+    tickEl[i].setAttribute('style', "background-color: red")}
+  else {
+    tickEl[i].setAttribute('style', 'background-color: green')}
   }
-    
 
- 
-  
+  let submitbtnEl=$('.submitbtn');
+  submitbtnEl.on('click', function(){
+    for (i=0; i<=tickEl.length-1; i++){
+      let storageString="event"+i
+
+      localStorage.setItem(storageString,tickEl[i].value)
+    }})
