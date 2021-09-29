@@ -29,3 +29,8 @@ main{
 .tick{
     color:black !important;
 }
+
+#blurb{
+    text-align: center;
+    font-size:30px;
+}
